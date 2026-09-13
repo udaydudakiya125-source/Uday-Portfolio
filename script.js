@@ -13,6 +13,12 @@ function setTheme(theme) {
     .querySelector(".theme-toggle")
     ?.setAttribute("aria-pressed", String(theme === "dark"));
   document
+    .querySelector(".theme-toggle")
+    ?.setAttribute(
+      "aria-label",
+      theme === "dark" ? "Switch to light mode" : "Switch to dark mode",
+    );
+  document
     .querySelector('meta[name="theme-color"]')
     ?.setAttribute("content", theme === "dark" ? "#0d0e0e" : "#f5f4f0");
   localStorage.setItem("uday-theme", theme);
