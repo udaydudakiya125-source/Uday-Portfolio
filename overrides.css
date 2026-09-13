@@ -122,6 +122,28 @@ html {
   top: 12px;
 }
 
+@media (max-width: 850px) {
+  .theme-toggle {
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    flex: 0 0 42px;
+    padding: 0;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    background: color-mix(in srgb, var(--surface) 82%, transparent);
+    transition:
+      background 0.25s ease,
+      border-color 0.25s ease,
+      transform 0.2s ease;
+  }
+
+  .theme-toggle:active {
+    transform: scale(0.94);
+  }
+}
+
 .footer-home-button {
   width: max-content;
   padding: 0 19px;
