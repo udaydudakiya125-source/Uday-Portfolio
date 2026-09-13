@@ -1,0 +1,196 @@
+/* Small post-build fixes kept separate because the generated CSS is compacted. */
+.section-intro .eyebrow,
+.capabilities .eyebrow,
+.services .eyebrow,
+.about .eyebrow,
+.experience .eyebrow,
+.contact .eyebrow {
+  margin: 0 0 1.5rem;
+}
+
+/* A consistent high-contrast keyboard focus state is part of the visual system. */
+:where(a, button, input, textarea, select):focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+/* The phone is intentionally icon-only; its accessible name remains on the link. */
+.contact-links a[href^="tel:"] {
+  font-size: 0;
+}
+.contact-links .phone-icon {
+  font-size: 0;
+}
+.contact-links .phone-icon::after {
+  content: "☎";
+  font-size: 16px;
+  line-height: 1;
+}
+.school-content button {
+  pointer-events: none;
+  cursor: default;
+}
+
+html {
+  scroll-padding-top: 100px;
+}
+
+.project-media[role="link"] {
+  cursor: pointer;
+}
+.project-media[role="link"] .media-note {
+  pointer-events: none;
+}
+.project-detail {
+  display: grid;
+  max-height: 0;
+  opacity: 0;
+  visibility: hidden;
+  overflow: hidden;
+  padding-top: 0;
+  margin-top: 0;
+  transition:
+    max-height 0.6s ease,
+    opacity 0.35s ease,
+    padding-top 0.45s ease,
+    margin-top 0.45s ease,
+    visibility 0s linear 0.6s;
+}
+
+.project-detail.open {
+  max-height: 420px;
+  opacity: 1;
+  visibility: visible;
+  padding-top: 22px;
+  margin-top: 24px;
+  transition:
+    max-height 0.6s ease,
+    opacity 0.35s ease,
+    padding-top 0.45s ease,
+    margin-top 0.45s ease,
+    visibility 0s;
+}
+
+.project-featured .media-winnies {
+  width: min(78%, 980px);
+  aspect-ratio: 1.76;
+  margin-inline: auto;
+}
+
+.winnies-gallery {
+  position: relative;
+  height: 100%;
+  background: var(--surface);
+}
+
+.winnies-gallery img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1.2s ease-in-out;
+}
+
+.winnies-gallery img.is-active {
+  opacity: 1;
+}
+
+@media (max-width: 560px) {
+  .project-featured .media-winnies {
+    width: 100%;
+  }
+}
+
+.site-header {
+  top: 16px;
+  left: 50%;
+  width: min(calc(100% - 2rem), 1080px);
+  transform: translateX(-50%);
+  border: 1px solid color-mix(in srgb, var(--elev) 55%, transparent);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--bg) 04%, transparent);
+  box-shadow:
+    0 10px 30px color-mix(in srgb, var(--ink) 14%, transparent),
+    inset 0 1px 0 color-mix(in srgb, var(--elev) 50%, transparent);
+  backdrop-filter: blur(18px) saturate(135%);
+}
+
+.site-header.scrolled {
+  top: 12px;
+}
+
+.footer-home-button {
+  width: max-content;
+  padding: 0 19px;
+  letter-spacing: normal;
+  background: transparent;
+  color: #000;
+}
+
+.footer-home-button span {
+  font-size: 1em;
+  line-height: 0.9;
+  transform: rotate(45deg);
+}
+
+.footer-home-button:hover span {
+  transform: translate(3px, -3px) rotate(45deg);
+}
+
+@media (max-width: 560px) {
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
+  .hero {
+    overflow: hidden;
+  }
+
+  .hero-object {
+    width: min(70vw, 260px);
+    right: -8%;
+  }
+
+  .hero-bottom,
+  .hero-actions,
+  .project-caption,
+  .project-info,
+  .service-list button,
+  .footer-top,
+  .footer-bottom {
+    min-width: 0;
+  }
+
+  .hero-actions {
+    flex-wrap: wrap;
+    row-gap: 16px;
+  }
+
+  .capability-rail {
+    width: auto;
+    flex-wrap: wrap;
+    gap: 1rem 1.5rem;
+    font-size: clamp(2.5rem, 13vw, 3.5rem);
+    animation: none;
+  }
+
+  .service-list strong {
+    overflow-wrap: anywhere;
+  }
+
+  .field input,
+  .field textarea,
+  .field select {
+    width: 100%;
+  }
+}
+
+@media (max-width: 850px) {
+  .mobile-menu {
+    display: block;
+  }
+}

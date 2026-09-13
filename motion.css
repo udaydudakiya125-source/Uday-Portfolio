@@ -1,0 +1,224 @@
+/* Purposeful motion layer: activated only when JavaScript and motion are available. */
+@media (prefers-reduced-motion: no-preference) {
+  .js .hero-eyebrow,
+  .js .hero-kicker,
+  .js .hero h1 span,
+  .js .hero-bottom > * {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  .js.motion-ready .hero-eyebrow {
+    animation: rise-in 0.55s var(--ease) 0.05s forwards;
+  }
+  .js.motion-ready .hero-kicker {
+    animation: rise-in 0.55s var(--ease) 0.17s forwards;
+  }
+  .js.motion-ready .hero h1 span:nth-child(1) {
+    animation: rise-in 0.8s var(--ease) 0.23s forwards;
+  }
+  .js.motion-ready .hero h1 span:nth-child(2) {
+    animation: rise-in 0.8s var(--ease) 0.32s forwards;
+  }
+  .js.motion-ready .hero h1 span:nth-child(3) {
+    animation: rise-in 0.8s var(--ease) 0.41s forwards;
+  }
+  .js.motion-ready .hero-bottom > *:nth-child(1) {
+    animation: rise-in 0.6s var(--ease) 0.56s forwards;
+  }
+  .js.motion-ready .hero-bottom > *:nth-child(2) {
+    animation: rise-in 0.6s var(--ease) 0.65s forwards;
+  }
+  .js.motion-ready .hero-bottom > *:nth-child(3) {
+    animation: rise-in 0.6s var(--ease) 0.72s forwards;
+  }
+  .js .hero-object {
+    opacity: 0;
+    transform: rotate(-16deg) translateY(22px) scale(0.96);
+  }
+  .js.motion-ready .hero-object {
+    animation: object-in 1.05s var(--ease) 0.28s forwards;
+  }
+  .motion-section {
+    opacity: 0;
+    transform: translateY(28px);
+    transition:
+      opacity 0.78s var(--ease),
+      transform 0.78s var(--ease);
+  }
+  .motion-section.in-view {
+    opacity: 1;
+    transform: none;
+  }
+  .motion-section .section-intro > p,
+  .motion-section .services-intro > p:last-child,
+  .motion-section .about-lead {
+    transition:
+      opacity 0.65s var(--ease) 0.13s,
+      transform 0.65s var(--ease) 0.13s;
+  }
+  .motion-section:not(.in-view) .section-intro > p,
+  .motion-section:not(.in-view) .services-intro > p:last-child,
+  .motion-section:not(.in-view) .about-lead {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  .project-media .browser,
+  .project-media .poster,
+  .project-media .school-frame {
+    transition: transform 0.75s var(--ease);
+  }
+  .project:hover .browser {
+    transform: scale(1.025) translateY(-4px);
+  }
+  .project:hover .poster {
+    transform: scale(1.035);
+  }
+  .project:hover .school-frame {
+    transform: scale(1.025);
+  }
+  .project:hover .winnies-sun {
+    transform: translate(-8px, 6px);
+  }
+  .winnies-sun {
+    transition: transform 0.75s var(--ease);
+  }
+  .project:hover .school-square.s1 {
+    transform: translate(-10px, 7px) rotate(16deg);
+  }
+  .project:hover .school-square.s2 {
+    transform: translate(8px, -6px) rotate(-12deg);
+  }
+  .school-square {
+    transition: transform 0.7s var(--ease);
+  }
+  .site-header .desktop-nav a {
+    transition: color 0.25s ease;
+  }
+  .site-header .desktop-nav a.active {
+    color: #719500;
+  }
+  .site-header .desktop-nav a.active:after {
+    width: 100%;
+    background: var(--accent);
+  }
+  .mobile-menu.open nav a {
+    animation: menu-rise 0.5s var(--ease) both;
+  }
+  .mobile-menu.open nav a:nth-child(2) {
+    animation-delay: 0.06s;
+  }
+  .mobile-menu.open nav a:nth-child(3) {
+    animation-delay: 0.12s;
+  }
+  .mobile-menu.open nav a:nth-child(4) {
+    animation-delay: 0.18s;
+  }
+  .capability-rail {
+    animation: none !important;
+    width: auto;
+    flex-wrap: wrap;
+    gap: 1.25rem 3rem;
+  }
+  .capability-rail p {
+    transition:
+      color 0.35s ease,
+      transform 0.35s var(--ease);
+  }
+  .capability-rail:hover p {
+    color: color-mix(in srgb, var(--bg) 48%, transparent);
+  }
+  .capability-rail p:hover {
+    color: var(--accent) !important;
+    transform: translateY(-5px);
+  }
+  .timeline article {
+    transition:
+      background 0.3s ease,
+      padding-left 0.35s var(--ease);
+  }
+  .timeline article:hover {
+    padding-left: 12px;
+    background: color-mix(in srgb, var(--surface) 45%, transparent);
+  }
+  .about-mark span,
+  .about-mark i {
+    transition: transform 0.7s var(--ease);
+  }
+  .about:hover .about-mark span {
+    transform: translateX(-18%) rotate(-3deg);
+  }
+  .about:hover .about-mark i {
+    transform: translate(32%, 9%) rotate(5deg);
+  }
+  .magnetic {
+    transition: transform 0.3s var(--ease);
+    will-change: transform;
+  }
+  .cursor-view {
+    position: fixed;
+    z-index: 12;
+    display: grid;
+    place-items: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: var(--accent-ink);
+    font: 600 10px var(--mono);
+    letter-spacing: 0.05em;
+    pointer-events: none;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.7);
+    transition:
+      opacity 0.2s ease,
+      transform 0.3s var(--ease);
+  }
+  .cursor-view.visible {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+@keyframes rise-in {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes object-in {
+  to {
+    opacity: 1;
+    transform: rotate(-10deg) translateY(0) scale(1);
+  }
+}
+@keyframes menu-rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@media (max-width: 850px) {
+  .capability-rail {
+    gap: 1rem 2rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .motion-section {
+    opacity: 1;
+    transform: none;
+  }
+}
+@media (max-width: 560px) {
+  .hero-object {
+    width: 62vw;
+    right: -16%;
+    bottom: 205px;
+    opacity: 0.18;
+  }
+  .hero h1 {
+    max-width: 330px;
+  }
+}
